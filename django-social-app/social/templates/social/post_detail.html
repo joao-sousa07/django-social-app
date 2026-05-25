@@ -1,0 +1,22 @@
+{% extends 'social/base.html' %}
+
+{% block content %}
+
+<div class="card shadow">
+    <div class="card-body">
+
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+
+        <p class="text-muted">
+            👤 {{ post.author.username }}
+        </p>
+
+        <a href="/like/{{ post.id }}/" class="btn btn-danger">
+            ❤️ Like ({{ post.total_likes }})
+        </a>
+
+    </div>
+</div>
+
+{% endblock %}

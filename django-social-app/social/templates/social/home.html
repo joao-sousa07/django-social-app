@@ -1,0 +1,30 @@
+{% extends 'social/base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">📢 Feed</h2>
+
+{% for post in posts %}
+<div class="card mb-4 shadow border-0 rounded-4">
+    <div class="card-body">
+
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">{{ post.content }}</p>
+
+        <small class="text-muted">
+            👤 {{ post.author.username }} • {{ post.created_at }}
+        </small>
+
+        <hr>
+
+        <a href="/post/{{ post.id }}/" class="btn btn-sm btn-primary">Ver</a>
+
+        <a href="/like/{{ post.id }}/" class="btn btn-sm btn-outline-danger">
+            ❤️ {{ post.total_likes }}
+        </a>
+
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
